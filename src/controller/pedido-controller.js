@@ -1,5 +1,5 @@
-const Usuario = require('../model/Pedido')
-const UsuarioDAO = require('../DAO/PedidoDAO')
+const Pedido = require('../model/Pedido')
+const PedidoDAO = require('../DAO/PedidoDAO')
 
 
 
