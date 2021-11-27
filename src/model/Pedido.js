@@ -13,7 +13,7 @@ class Pedido {
     }
 }
 
-module.exports = Usuario
+module.exports = Pedido
 
 
 
