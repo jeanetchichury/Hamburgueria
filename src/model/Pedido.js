@@ -1,32 +1,21 @@
-// var id = 0
+var id = 0
 
-// class Usuario {
-//     constructor(nome, email, senha, array, idExistente){
-//         if(array){
-//                 if(idExistente){
-//                 this.id = idExistente
-//             } else {
-//                 this.id = id++
-//             }
-//         }
-//         this.nome = nome
-//         this.email = email
-//         this.senha = this._verificaSenha(senha)
-//     }
+class Pedido {
+    constructor(cliente, status_pg, item1, qntd_item1, item2, qntd_item2, item3, qntd_item3){
+        this.cliente = cliente
+        this.status_pg = status_pg
+        this.item1 =item1
+        this.qntd_item1 = qntd_item1
+        this.item2 = item2
+        this.qntd_item2 = qntd_item2
+        this.item3 = item3
+        this.qntd_item3 = qntd_item3
+    }
+}
 
-//     _verificaSenha(senha){
-//         if(senha.length <= 6){
-//             return senha
-//         } else{
-//             throw new Error("senha tem que ter até 6 caracteres")
-//         }
-//     }
-
-// }
-
-// module.exports = Usuario
+module.exports = Usuario
 
 
 
 
-// module.exports = Pedido
+module.exports = Pedido
