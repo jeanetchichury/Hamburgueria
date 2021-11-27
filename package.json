@@ -4,6 +4,7 @@
   "description": "Criação do CRUD para uma API rest do banco de dados dos pedidos de uma hamburgueria",
   "main": "./src/app.js",
   "scripts": {
+    "dev" : "./src/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

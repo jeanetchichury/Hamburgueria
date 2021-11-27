@@ -3,7 +3,7 @@ class PedidoDAO{
         this.bd = bd
     }
 
-    pegaTodosPedido(){
+    pegaTodosPedidos(){
         return new Promise((resolve, reject)=>{
             this.bd.all('SELECT * FROM PEDIDO', (error, rows)=>{
                 if(error){
@@ -42,9 +42,9 @@ class PedidoDAO{
         })
     }
 
-    pegaPedidoPorCliente(cliente){
+    pegaPedidoPorcliente(cliente){
         const SELECT_BY_CLIENTE = `
-        SELECT * FROM CLIENTE
+        SELECT * FROM PEDIDO
         WHERE CLIENTE = ?`
         return new Promise((resolve, reject)=>{
             this.bd.all(SELECT_BY_CLIENTE, cliente, (error, rows)=>{
