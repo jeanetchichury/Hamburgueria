@@ -14,6 +14,16 @@ const pedido = (app,bd) =>{
         }
     })
 
+    app.get('/maisPedido', async (req, res)=> {
+        try {
+            const resposta = await novoPedidoDAO.maisPedidos()
+            res.json(resposta)
+
+        } catch (error) {
+            res.json(error)
+        }
+    })
+
     app.post('/pedido', async (req, res)=> {
         // Usar o try-catch para pegar o erro, caso a validacao
         // do model de erro, ou outro erro apareça
@@ -71,16 +81,16 @@ const pedido = (app,bd) =>{
             const pedidoAntigo = respostaGet.requisicao[0]
             
             if(pedidoAntigo){
-
+                console.log(pedidoAntigo)
                 const pedidoAtualizado = new Pedido (
-                    body.cliente || pedidoAntigo.cliente,
-                    body.status_pg || pedidoAntigo.status_pg,
-                    body.item1 || pedidoAntigo.item1,
-                    body.qntd_item1 || pedidoAntigo.qntd_item1,
-                    body.item2 || pedidoAntigo.item2,
-                    body.qntd_item2 || pedidoAntigo.qntd_item2,
-                    body.item3 || pedidoAntigo.item3,
-                    body.qntd_item3 || pedidoAntigo.qntd_item3,
+                    body.cliente || pedidoAntigo.CLIENTE,
+                    body.status_pg || pedidoAntigo.STATUS_PG,
+                    body.item1 || pedidoAntigo.ITEM1,
+                    body.qntd_item1 || pedidoAntigo.QNTD_ITEM1,
+                    body.item2 || pedidoAntigo.ITEM2,
+                    body.qntd_item2 || pedidoAntigo.QNTD_ITEM2,
+                    body.item3 || pedidoAntigo.ITEM3,
+                    body.qntd_item3 || pedidoAntigo.QNTD_ITEM3,
                 )
                 const resposta = await novoPedidoDAO.atualizaPedido(id, pedidoAtualizado)
                 res.json(resposta)               

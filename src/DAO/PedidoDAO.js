@@ -136,6 +136,34 @@ class PedidoDAO{
             throw new Error(error.message)
         }   
     }
+
+    maisPedidos(){
+        const soma = `
+        SELECT cliente, item1, sum(qntd_item1) AS total
+        FROM PEDIDO
+        GROUP BY cliente
+        ORDER BY total desc`
+        return new Promise((resolve, reject)=>{
+            this.bd.all(soma, (error, rows)=>{
+                if (error){
+                    reject({
+                        "mensagem": error.message,
+                        "error":true
+                    })
+                }
+                else{
+                    console.log(rows)
+                    resolve({
+                        "Os mais pedidos:" : rows,
+                        "error":false
+                    })
+                }
+            })
+        })
+    }
+    
 }
+
+
 
 module.exports = PedidoDAO
